@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA info</title>
+</head>
+
+<body>
+    <%if(locals.player_info){ %>
+        <p style="font-size: 26px" > Player Name: <%=  player_info["first_name"] + " " + player_info["last_name"]%> <br>
+        Position: <%=  player_info["position"]%> <br>
+        height: <%=  player_info["height"]%><br>
+        Jersey Number: <%=  player_info["jersey_number"]%><br>
+        Draft year: <%=  player_info["draft_year"]%><br>
+        Draft Round:  <%=  player_info["draft_round"]%><br>
+        Draft Number:  <%=  player_info["draft_number"]%><br>
+        Team:  <%=  player_info["team"]["name"]%><br>
+        City:  <%=  player_info["team"]["city"]%><br> 
+        <br> <b>Enter a Name</b>
+        </p>
+
+    <%}else{%>
+        <h1>NBA player information </h1>
+        <p> Enter an NBA player's first and Last Name and I will provide some information about him</p>
+    <%}%>
+        <form action="/info" method="POST">
+        <input type="text" name="fName" placeholder="First name">
+        <input type="text" name="lName" placeholder="Last name">
+        <input type="submit" value="OK">
+    </form>
+
+</body>
+</html>
